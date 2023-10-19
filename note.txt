@@ -1,0 +1,281 @@
+React - front end technology
+----------------------------------
+to open react in browser open file-react-demo-cmd-npm start
+
+*) to create UI
+
+UI- User Interface
+-------------------
+The point where the user interact or communicate with the software/frontend.
+
+React make use of javascript libraries to create frontend /user interface.
+
+*)Libraries : predefined codes to do particular tasks.
+*)Framework : predefined codes work within the frames 
+
+Differences between libraries &frameworks
+__________________________________________
+A framework is a set of pre-written code that provides a structure for developing software applications. A library, on the other hand, is a collection of pre-written code that can be used to perform specific tasks.
+frameworks are much more restricted as a developer point of view where as libraries provides much more freedom to developers
+
+*)meta - data of data /data inside data
+
+FEATURES OF React
+------------------
+
+1)To create user interface.
+
+2)used to create single page application :- web application or website that interact with the user by dynamically rewriting the current webpage with new data from the web server instead of default method(only single page will be loaded  it present initially content when we want to give new behaviour it rewrite the first content)
+
+3) react creates Declarative application : Declarative applications do not  have direct access real DOM they access only virtual DOM 
+ 
+4)VIRTUAL DOM :  its an exact copy of real DOM, in virtual Dom browser creates a DOM and takes its exact copy i.e, virtual DOM when developer makes a changes in nodes of virtual Dom thenthe changes will only reflect on virtual DOm real Dom  remains same. when compare with virtual and real Dom virtual dom has some changes then the changes will updated to the real DOM.
+*)Diffing:process of comparing virtual Dom and real DOM is called  diffing
+*)Reconciliation : process of updating real DOM
+*)Advantage:-No need to change the full page only we need to refresh the nodes only 
+*)virtual DOMs are created by REACT
+        onclick => onClick 
+
+5)Immutable variables : values cannot be changed.
+
+6)Pure function : it accept Immutable variables and returns  a new object - and only depend on the variables.
+                 eg;react components
+
+7)Data sharing : unidirectional data sharing ,data flow only in one direction (parent to child) 
+
+8)Language : jsx-javascript XML(combination of HTML,CSS,JAVASCRIPT)
+             - all jsx expression must be inside a single parent tag
+             -empty tag<></> : in REACT is called react fragment
+             -to access js code in jsx we need to use curly bracket{} inside the curly bracket variable eg: {subject}
+
+9)Transpiling : The process of converting JSX into browser recognisible language HTML,CSS,javascript
+                 Babel - convertor-automatically installed 
+
+
+
+How to create a react project
+__________________________________________
+
+1)for creation
+  npx create-react-app projectname
+
+npx-node package execute  - to execute
+npm -node package manager - to install
+
+npm i -g npm - node globalization
+npx create-react-app projectname     -happy hacking(folder will be created)
+
+2) cd projectname - to change directory or folder
+
+3)npm start - to run program
+
+files
+-------
+1)Readme.md - holds the description of the react application.
+2)package.JSON - npm configurations are present eg:dependencies - libraries
+3)package-lock.JSON - holds the version of libraries that is installed.
+4).gitignore -holds names of those files which  need not to be pushed into git repo.
+5)node modules - it holds the copy of installed libraries.
+6)public - holds files that can be accessed throughout the project.
+
+   -index.HTML - it is the only page that load in the browser(single page application)
+
+-reportWebVitals - to measure performance of the react applications.
+
+-data sharing - where it is created export there, where it is using there should be imported.
+
+components
+---------- 
+.) basic unit of react application. 
+.) components name should be always  starts with capital letters
+.)placed only within self closing tags
+
+ Different type of components
+-----------------------------------
+1) functional component / stateless component
+- components are created using functions 
+                          eg: App component
+   syntax                       
+   --------                      
+                          function componentname(){
+                            //js code
+                            return(
+                              //jsx code
+                              <div>
+                              <h1>absh</h1>
+                              </div>
+                            )
+                          }
+                          export default componentname
+
+
+
+2) class component/ stateful component
+- component name starts with capital letter.    
+syntax 
+-------                                              
+
+            import React from 'react'
+            class componentname extends React.Component {
+    //js code
+
+    render(){
+        return(
+            //jsx code
+            <div>
+                <h1>vbnvbnmbkj</h1>
+            </div>
+        )
+    }
+
+}
+
+export default componentname;
+
+for loading basic structure of react install extension es7 react/redux/native snippets -used for creating applications
+
+  *)rfce(react functional component export)- for loading basic structutre of functional component
+  *)rcc(react class component)-for loading basic strtuctutre of class component
+
+  how data sharing happens in react components
+  ---------------------------------------------
+  -unidirectional - parent - child
+   props is an object
+   {key:value}
+
+  object destructuring:-Destructuring is a convenient way of creating new variables by extracting some values from data stored in objects or arrays. 
+   --------------------
+  props ={subject:'react'}
+  child(props)->child({subject})
+ 
+How to style components in react using css
+----------------------------------------------
+
+1)inline
+2)External
+3)css module
+
+Inline
+------
+html= style ="property:value"
+
+jsx = style={{key:value}}
+key : property
+value:propertyvalue
+textAlign
+
+External
+---------
+.)external file is needed its extension must be .css
+.)external file have to be import to those file which we need to access
+syntax  to import
+------------------
+    import 'url'
+
+css module
+-----------
+ .)advantage-
+ -can be storred into a variable- can style using this variable
+ -can access globally
+    import
+ .)extension filename.module.css
+ .)should be created inside src folder
+ 
+
+ React event handling
+ --------------------
+ - function without argument- function name
+ -function with argument-function name(argument)-call back
+ html- onclick ="functionname()"
+
+ JSX-onClick={functionname}
+
+  argument indengil-onClick={()=>functionname(arg)}
+
+
+  how to get value from input
+  ---------------------------
+
+  onChange={}
+
+  conditional rendering
+  ---------------------
+  rendering:loading to browser.
+
+1)if:- && truthy operator
+2)if else:- ?: ternary operator 
+
+React state
+-----------
+state is an object that store properties of a react class component.
+-when value of the state changes it lead to re render of the component.
+
+.)setState()- used to change the value of state
+
+
+
+Life cycle of React class component
+------------------------------------
+
+1)Mounting phase - component is added to Dom
+  --------------
+methods:-
+.)constructor()- initialize the state
+.)getDerivedStateFromProps()- modify the state value depending upon the props
+.)render()- insert the content into the Dom
+.)componentDid Mount()-network request,component states updation
+
+2)Updating phase - editing the component
+  -------------
+.)getDerivedStateFromProps()-if there is any updated props
+.)shouldComponentUpdate()-true or false
+.)render()-
+.)getSnapshotBeforeUpdate()- get access to previous props and state before update.
+.)componentDidUpdate()
+
+3)Unmounting phase - removing component from the Dom
+  ---------------
+.)componentwillUnmount()
+
+ Hook is a  function
+ -----
+ predefined functions provides state and lifecycle for functional components.
+
+ 1)import hooks from the react library into functional component.
+ 2) call the hook at the top of functional component.
+ 3) cannot use hooks conditionally.
+
+ TYpes of hook
+ -------------
+ 1)predfined                                                2)customhooks 
+   
+   eg:useState hooks
+       -to create a state to functional components.
+       - it returns a state and a  function to change the state
+       -can store - string,number, objects, array...
+
+*)Rest operator(...)
+-------------------------
+-instructs the computer to  add the rest of the user supplied values into an array.
+-used to display remaining elements.
+
+
+React form
+-----------
+
+
+*)regular expression : to check whether the given string follows a particular pattern.
+
+rules to create a regular expression
+----------------------------------------
+1)should start and end with forward slash
+2)expression begins with ^ (rise to symbol) 
+3)expression ends with $(dollar symbol)
+
+eg:/^[0-9]+$/
+
+ match()-if string match with pattern -returns array otherwise return null
+
+
+
+
